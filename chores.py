@@ -7,12 +7,6 @@ import argparse
 import choreslib
 
 
-def reorder(task_list, args):
-    print("reorder")
-    print(args)
-    pass
-
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--tasklist", default=None, type=str,
@@ -34,7 +28,7 @@ def main():
     # REMOVE TASK ACTION PARSER
     rm_parser = subparsers.add_parser("remove", aliases=["rm"],
                                       help="Remove a task from the task list")
-    rm_parser.add_argument("task", type=str, help="Task to remove")
+    rm_parser.add_argument("task", type=str, help="Task to remove, 'ALL' to remove every task")
     rm_parser.set_defaults(func=choreslib.remove)
 
     # REORDER ACTION PARSER
